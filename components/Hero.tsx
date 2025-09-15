@@ -22,17 +22,15 @@ export default function Hero() {
           />
         </AspectRatio>
         <div className="flex-1 w-full mt-4 flex flex-col justify-center gap-4">
-          <h1 className="text-3xl font-bold">
-            Aidez les associations et les animaux en un clic 🐾
-          </h1>
+          <h1 className="text-3xl font-bold">Aidez les associations et les animaux en un clic</h1>
           <p className="mt-4 text-gray-600">
             Recherchez un animal à adopter, soutenez les associations locales ou faites un don pour
             leur venir en aide.
           </p>
         </div>
       </div>
-      <div className="flex gap-4 mt-4 max-w-xs">
-        <Input placeholder="Entrez votre ville ou code postal" />
+      <div className="flex gap-2 mt-4">
+        <Input placeholder="Entrez votre ville ou code postal" className="w-[250]" />
         <Button>Rechercher</Button>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import Hero from '@/components/Hero';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 
@@ -86,8 +87,9 @@ export default function HomePage() {
   ];
 
   return (
-    <main className=" h-screen justify-center mt-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full mx-auto max-w-full">
+    <main className="mx-20 justify-center mt-6">
+      <Hero />
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full mx-auto max-w-full">
         {associations.map((association, index) => (
           <Card
             key={index}

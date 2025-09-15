@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import { Quicksand } from 'next/font/google';
 
@@ -18,11 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={quicksand.className}>
-      <body className="mx-auto">
-        <div className="px-20">
-          <Hero />
-          <main>{children}</main>
-        </div>
+      <body>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
