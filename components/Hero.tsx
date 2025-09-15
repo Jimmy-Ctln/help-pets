@@ -10,7 +10,6 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <section className="mt-2">
-      <Header />
       <div className="w-full overflow-hidden mt-4">
         <AspectRatio ratio={6} className="flex-1">
           <Image
@@ -22,7 +21,7 @@ export default function Hero() {
           />
         </AspectRatio>
         <div className="flex-1 w-full mt-4 flex flex-col justify-center gap-4">
-          <h1 className="text-3xl font-bold">Aidez les associations et les animaux en un clic</h1>
+          <h1 className="text-3xl font-bold">Aide les associations et les animaux en un clic</h1>
           <p className="mt-4 text-gray-600">
             Recherchez un animal à adopter, soutenez les associations locales ou faites un don pour
             leur venir en aide.
