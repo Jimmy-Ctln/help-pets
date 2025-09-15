@@ -1,6 +1,16 @@
 import Link from 'next/link';
 import logo from '@/public/assets/logo.svg';
 import Image from 'next/image';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from '@/components/ui/navigation-menu';
 
 export default function Header() {
   const navigation = [
@@ -10,23 +20,19 @@ export default function Header() {
 
   return (
     <header className="w-full mt-2">
-      <div className="border rounded-full p-4">
+      <div className="rounded-full border-2 p-4">
         <div className="flex items-center justify-between">
           <div className="flex gap-2 items-end">
             <Image src={logo} alt="logo" width={30} height={'30'} />
             <h2 className="text-xl font-bold gap-2">Help Pets</h2>
           </div>
-          <nav aria-label="Navigation principale">
-            <ul className="flex list-none gap-2">
-              {navigation.map((nav, index) => (
-                <li key={index}>
-                  <Link href={nav.href} className="cursor-pointer">
-                    {nav.section}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Accueil</NavigationMenuTrigger>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       </div>
     </header>
