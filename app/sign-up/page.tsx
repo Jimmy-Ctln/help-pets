@@ -50,7 +50,7 @@ export default function Login() {
                 </div>
                 <div className="relative my-4 flex items-center justify-center overflow-hidden">
                   <Separator />
-                  <div className="px-2 text-center bg-background text-sm">OR</div>
+                  <div className="px-2 text-center bg-background text-sm">OU</div>
                   <Separator />
                 </div>
                 <Button className="mx-auto w-full" variant="outline">

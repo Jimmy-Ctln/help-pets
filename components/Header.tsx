@@ -1,6 +1,16 @@
 import Link from 'next/link';
 import logo from '@/public/assets/logo.svg';
 import Image from 'next/image';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { LogOut, User } from 'lucide-react';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -20,12 +30,10 @@ export default function Header() {
     <header className="w-full mt-4 px-20">
       <div className="rounded-full border-2 p-4">
         <div className="flex items-center justify-between">
-          <div className="flex gap-2 items-center">
+          <Link href={'/'} className="flex gap-2 items-center">
             <Image src={logo} className="object-cover" alt="logo" width={50} height={50} />
-            <h3 className="text-xl font-bold gap-2">
-              <Link href={'/'}>Main dans la Patte</Link>
-            </h3>
-          </div>
+            <h3 className="text-xl font-bold gap-2">Main dans la Patte</h3>
+          </Link>
           <NavigationMenu>
             <NavigationMenuList>
               {navigationMenuItems.map((item) => (
@@ -38,6 +46,27 @@ export default function Header() {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               ))}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-primary rounded-full">
+                  <Avatar>
+                    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuLabel>Mon compte</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <Link className="flex gap-2" href={'/profile'}>
+                      <User className="h-4 w-4" />
+                      Profil
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-destructive">
+                    <LogOut className="h-4 w-4" /> Se deconnecter
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
