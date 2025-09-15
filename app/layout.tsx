@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
-import Header from '@/components/Header';
 import './globals.css';
+import Hero from '@/components/Hero';
+import Footer from '@/components/Footer';
+import { Quicksand } from 'next/font/google';
 
-const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700'] });
+const quicksand = Quicksand({ subsets: ['latin'], weight: ['400', '700'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,10 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={poppins.className}>
-      <body className="max-w-[1440px] mx-auto">
-        <Header />
-        <main>{children}</main>
+    <html lang="fr" className={quicksand.className}>
+      <body className="mx-auto">
+        <div className="px-20">
+          <Hero />
+          <main>{children}</main>
+        </div>
+        <Footer />
       </body>
     </html>
   );
