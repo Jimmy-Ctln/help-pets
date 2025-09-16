@@ -56,8 +56,8 @@ export default function Header() {
                 <DropdownMenuContent>
                   <DropdownMenuLabel>Mon compte</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <Link className="flex gap-2" href={'/profile'}>
+                  <DropdownMenuItem asChild>
+                    <Link className="flex gap-2 w-full" href="/profile">
                       <User className="h-4 w-4" />
                       Profil
                     </Link>

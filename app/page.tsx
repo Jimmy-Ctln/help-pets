@@ -87,7 +87,7 @@ export default function HomePage() {
   ];
 
   return (
-    <main className="mx-20 justify-center mt-6">
+    <main className="mx-20 justify-center my-8">
       <Hero />
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full mx-auto max-w-full">
         {associations.map((association, index) => (
