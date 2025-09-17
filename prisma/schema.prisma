@@ -67,6 +67,7 @@ model Shelter {
   description String?
   address     String?
   city        String?
+  postalCode  String?
   picture     String?
   phone       String?
   email       String?
