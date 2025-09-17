@@ -1,20 +1,40 @@
-export type ShelterCreateData = {
-  name?: string
+export interface AnimalCreateData {
+  id: string
+  name: string
+  species: string
+  breed?: string
+  age?: number
+  size?: string
+  weight?: number
+  color?: string
+  birthday?: string
   description?: string
-  address?: string
-  city?: string
-  picture?: string
-  phone?: string
-  email?: string
-  userId: string
+  photos: string[]
+  status: string
+  vaccinated?: boolean
+  identified?: boolean
+  chipNumber?: string
+  sterilized?: boolean
+  compatibility?: string
+  specialNeeds?: string
+  shelterId: string
 }
 
-export type ShelterUpdateData = {
+export type AnimalUpdateData = {
   name?: string
+  species?: string
+  breed?: string
+  age?: number
+  size?: string
+  weight?: number
+  birthday?: string
   description?: string
-  address?: string
-  city?: string
-  picture?: string
-  phone?: string
-  email?: string
+  photos?: string[]
+  status?: string
+  vaccinated?: boolean
+  identified?: boolean
+  chipNumber?: string
+  sterilized?: boolean
+  compatibility?: string
+  specialNeeds?: string
 }

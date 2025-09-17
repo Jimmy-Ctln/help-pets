@@ -1,5 +1,5 @@
 import { AnimalRepository } from './animal-repository'
-import { AnimalCreateData, AnimalUpdateData } from './animal-response'
+import { AnimalCreateData, AnimalUpdateData } from './animal-model'
 
 export class AnimalService {
   private repository: AnimalRepository
@@ -8,7 +8,13 @@ export class AnimalService {
     this.repository = new AnimalRepository()
   }
 
-  async getAnimalsForDisplay() {
+  async getAllAnimals(shelterId?: string) {
+    if (shelterId) {
+      const animals = await this.repository.getAllAnimals(shelterId)
+      return animals.map((animal) => ({
+        ...animal,
+      }))
+    }
     const animals = await this.repository.getAllAnimals()
     return animals.map((animal) => ({
       ...animal,

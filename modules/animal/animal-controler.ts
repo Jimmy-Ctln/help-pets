@@ -1,4 +1,4 @@
-import { AnimalCreateData, AnimalUpdateData } from './animal-response'
+import { AnimalCreateData, AnimalUpdateData } from './animal-model'
 import { AnimalService } from './animal-service'
 
 export class AnimalControler {
@@ -8,8 +8,15 @@ export class AnimalControler {
     this.service = new AnimalService()
   }
 
-  async getAnimals() {
-    return this.service.getAnimalsForDisplay()
+  async getAllAnimals(shelterId?: string) {
+    if (shelterId) {
+      return this.service.getAllAnimals(shelterId)
+    }
+    return this.service.getAllAnimals()
+  }
+
+  async getAnimal() {
+    return this.service.getAllAnimals()
   }
 
   async getAnimalById(id: string) {

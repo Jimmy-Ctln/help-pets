@@ -2,7 +2,12 @@ import prisma from '@/lib/prisma'
 import { AnimalCreateData, AnimalUpdateData } from './animal-response'
 
 export class AnimalRepository {
-  async getAllAnimals() {
+  async getAllAnimals(shelterId?: string) {
+    if (shelterId) {
+      return prisma.animal.findMany({
+        where: { shelterId },
+      })
+    }
     return prisma.animal.findMany()
   }
 
