@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import logo from '@/public/assets/logo.svg';
-import Image from 'next/image';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import Link from 'next/link'
+import logo from '@/public/assets/logo.svg'
+import Image from 'next/image'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,22 +9,24 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { LogOut, User } from 'lucide-react';
+} from '@/components/ui/dropdown-menu'
+import { LogOut, User } from 'lucide-react'
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { Home, LogIn } from 'lucide-react';
+} from '@/components/ui/navigation-menu'
+import { Home, LogIn } from 'lucide-react'
 
 export default function Header() {
   const navigationMenuItems = [
     { title: 'Accueil', href: '/', icon: Home },
     { title: 'Se connecter', href: '/login', icon: LogIn },
-  ];
+  ]
+
+  const id = 'fakeIdInProfil'
 
   return (
     <header className="w-full mt-4 px-20">
@@ -57,7 +59,7 @@ export default function Header() {
                   <DropdownMenuLabel>Mon compte</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link className="flex gap-2 w-full" href="/profile">
+                    <Link className="flex gap-2 w-full" href={`/profile/${id}`}>
                       <User className="h-4 w-4" />
                       Profil
                     </Link>
@@ -72,5 +74,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
