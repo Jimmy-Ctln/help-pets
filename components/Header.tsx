@@ -59,7 +59,7 @@ export default function Header() {
                   <DropdownMenuLabel>Mon compte</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link className="flex gap-2 w-full" href={`/profile/${id}`}>
+                    <Link className="flex gap-2 w-full" href={`/shelters/${id}`}>
                       <User className="h-4 w-4" />
                       Profil
                     </Link>

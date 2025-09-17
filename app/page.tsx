@@ -20,8 +20,8 @@ export default function HomePage() {
     <main className="mx-20 justify-center my-8">
       <Hero />
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full mx-auto max-w-full">
-        {shelters.map((shelter: ShelterResponse, index) => (
-          <Link key={shelter.id} href={`/profile/${shelter.id}`}>
+        {shelters.map((shelter: ShelterResponse) => (
+          <Link key={shelter.id} href={`/shelters/${shelter.id}`}>
             <Card
               key={shelter.id}
               className="cursor-pointer flex py-0 pb-4 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-105"
