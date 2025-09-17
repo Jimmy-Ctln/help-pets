@@ -1,16 +1,30 @@
-'use client';
+'use client'
 
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import loginDog from '@/public/assets/loginDog.jpg';
-import Image from 'next/image';
-import {} from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Separator } from '@/components/ui/separator';
-import Link from 'next/link';
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import loginDog from '@/public/assets/loginDog.jpg'
+import Image from 'next/image'
+import {} from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
+import { Separator } from '@/components/ui/separator'
+import Link from 'next/link'
+import { useSession, signIn } from 'next-auth/react'
 
 export default function Login() {
+  const { data } = useSession()
+  console.log(data)
+
+  async function testLogin() {
+    const result = await signIn('credentials', {
+      email: 'fake@gmail.com',
+      password: 'fakePassword',
+      redirect: false,
+    })
+
+    console.log(result)
+  }
+
   return (
     <div className="mt-28 flex justify-center items-center">
       <Card className="w-[80%]">
@@ -37,7 +51,9 @@ export default function Login() {
                     </Label>
                     <Input id="password" type="password" placeholder="Entrez votre mot de passe" />
                   </div>
-                  <Button className="w-full mx-auto mt-2">Se connecter</Button>
+                  <Button onClick={testLogin} className="w-full mx-auto mt-2">
+                    Se connecter
+                  </Button>
                 </div>
                 <div className="relative my-4 flex items-center justify-center overflow-hidden">
                   <Separator />
@@ -71,5 +87,5 @@ export default function Login() {
         </div>
       </Card>
     </div>
-  );
+  )
 }

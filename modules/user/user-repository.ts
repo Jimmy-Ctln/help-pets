@@ -1,17 +1,17 @@
-import { prisma } from '@/lib/prisma';
+import prisma from '@/lib/prisma'
 
 export class UserRepository {
   async findByEmail(email: string) {
     return prisma.user.findUnique({
       where: { email },
-    });
+    })
   }
-  async create(email: string, hashedPassword: string) {
+  async create(email: string, password: string) {
     return prisma.user.create({
       data: {
         email,
-        password: hashedPassword,
+        password,
       },
-    });
+    })
   }
 }
