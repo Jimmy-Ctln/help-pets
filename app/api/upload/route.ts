@@ -31,8 +31,8 @@ export async function POST(req: Request) {
     transformation = [
       { width: 500, height: 350, crop: 'fill', quality: 'auto', fetch_format: 'auto' },
     ]
-  } else if (folder === 'shelters-animals') {
-    transformation = [{ width: 800, quality: 'auto', fetch_format: 'auto' }]
+  } else if (folder === 'animals-pictures') {
+    transformation = [{ width: 500, quality: 'auto', fetch_format: 'auto' }]
   }
 
   const arrayBuffer = await file.arrayBuffer()
