@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import loginCat from '@/public/assets/loginCat.jpg';
-import Image from 'next/image';
-import {} from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Separator } from '@/components/ui/separator';
-import Link from 'next/link';
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import loginCat from '@/public/assets/loginCat.jpg'
+import Image from 'next/image'
+import {} from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
+import { Separator } from '@/components/ui/separator'
+import Link from 'next/link'
 
-export default function Login() {
+export default function Register() {
   return (
     <div className="mt-28 flex justify-center items-center">
       <Card className="w-[80%] min-h-full">
@@ -80,5 +80,5 @@ export default function Login() {
         </div>
       </Card>
     </div>
-  );
+  )
 }
