@@ -1,21 +1,21 @@
-'use client';
+'use client'
 
-import house from '@/public/assets/house.jpg';
-import Image from 'next/image';
-import { AspectRatio } from '@radix-ui/react-aspect-ratio';
-import * as React from 'react';
-import { Button } from '@/components/ui/button';
-import cat1 from '@/public/assets/cat-1.jpg';
-import cat2 from '@/public/assets/cat-2.jpg';
-import dog1 from '@/public/assets/dog-1.jpg';
-import dog2 from '@/public/assets/dog-2.jpg';
-import dog3 from '@/public/assets/dog-3.jpg';
-import cat3 from '@/public/assets/cat-3.jpg';
-import food from '@/public/assets/food.jpg';
-import soap from '@/public/assets/soap.jpg';
-import toys from '@/public/assets/toys.jpg';
-import catOut from '@/public/assets/cat-out.jpg';
-import { useState } from 'react';
+import house from '@/public/assets/house.jpg'
+import Image from 'next/image'
+import { AspectRatio } from '@radix-ui/react-aspect-ratio'
+import * as React from 'react'
+import { Button } from '@/components/ui/button'
+import cat1 from '@/public/assets/cat-1.jpg'
+import cat2 from '@/public/assets/cat-2.jpg'
+import dog1 from '@/public/assets/dog-1.jpg'
+import dog2 from '@/public/assets/dog-2.jpg'
+import dog3 from '@/public/assets/dog-3.jpg'
+import cat3 from '@/public/assets/cat-3.jpg'
+import food from '@/public/assets/food.jpg'
+import soap from '@/public/assets/soap.jpg'
+import toys from '@/public/assets/toys.jpg'
+import catOut from '@/public/assets/cat-out.jpg'
+import { useState } from 'react'
 
 import {
   Card,
@@ -24,14 +24,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@/components/ui/card'
 
 export default function Profile() {
-  const [displayOption, setDisplayOption] = useState<'pets' | 'needs'>('pets');
+  const [displayOption, setDisplayOption] = useState<'pets' | 'needs'>('pets')
 
   const handleClick = (button: string) => {
-    setDisplayOption(button as 'pets' | 'needs');
-  };
+    setDisplayOption(button as 'pets' | 'needs')
+  }
 
   const pets = [
     {
@@ -101,7 +101,7 @@ export default function Profile() {
       description:
         'Charly est un Maine Coon affectueux et majestueux, très sociable avec les enfants.',
     },
-  ];
+  ]
 
   const needs = [
     {
@@ -141,7 +141,7 @@ export default function Profile() {
       urgence: 'Haute',
       prix: '22€',
     },
-  ];
+  ]
 
   return (
     <div className="mt-8 flex-col justify-center items-center px-20">
@@ -252,5 +252,5 @@ export default function Profile() {
         </section>
       </section>
     </div>
-  );
+  )
 }
