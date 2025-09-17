@@ -25,9 +25,19 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { ShelterResponse } from '@/modules/shelter/shelter-response'
 
-export default function Profile() {
+export default function Profile({ params }: { params: { id: string } }) {
   const [displayOption, setDisplayOption] = useState<'pets' | 'needs'>('pets')
+  const [shelter, setShelter] = useState<ShelterResponse>()
+
+  const { id } = params
+
+  React.useEffect(() => {
+    fetch(`/api/shelters/${id}`)
+      .then((res) => res.json())
+      .then((data) => setShelter(data))
+  }, [])
 
   const handleClick = (button: string) => {
     setDisplayOption(button as 'pets' | 'needs')
@@ -158,11 +168,8 @@ export default function Profile() {
       <section className="flex gap-4 mt-8">
         <Card className="w-[350px] mt-4 py-6 bg-secondary/50 shadow-none h-auto max-h-fit">
           <CardHeader>
-            <CardTitle className="text-xl">Refuge du bonheur</CardTitle>
-            <CardDescription className="text-sm">
-              Notre association aide les animaux à trouver un foyer chaleureux et veille à leur
-              bien-être au quotidien. 🐶
-            </CardDescription>
+            <CardTitle className="text-xl">{shelter?.name}</CardTitle>
+            <CardDescription className="text-sm">{shelter?.description}</CardDescription>
           </CardHeader>
           <CardContent>
             <span className="text-base font-bold">Nous contacter</span>
@@ -170,18 +177,16 @@ export default function Profile() {
               <span className="flex items-center gap-2">
                 Téléphone :{' '}
                 <a href="tel:+33123456789" className="underline">
-                  01 23 45 67 89
+                  {shelter?.phone}
                 </a>
               </span>
               <span className="flex items-center gap-2">
                 Email :{' '}
-                <a href="mailto:contact@refugedubonheur.fr" className="underline">
-                  contact@refugedubonheur.fr
+                <a href={`mailto:${shelter?.email}`} className="underline">
+                  {shelter?.email}
                 </a>
               </span>
-              <span className="flex items-center gap-2">
-                Adresse : 12 rue des Animaux, 75000 Paris, France
-              </span>
+              <span className="flex items-center gap-2">{shelter?.address}</span>
             </div>
             <CardFooter className="mt-4 w-full">
               <Button size={'sm'} className="w-full">
