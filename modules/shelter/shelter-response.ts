@@ -4,6 +4,7 @@ export interface ShelterResponse {
   description?: string | null
   address?: string | null
   city?: string | null
+  postalCode?: string | null
   picture?: string | null
   phone?: string | null
   email?: string | null

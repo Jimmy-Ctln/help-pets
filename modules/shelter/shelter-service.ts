@@ -20,6 +20,7 @@ export class ShelterService {
       phone: shelter.phone ?? null,
       email: shelter.email ?? null,
       city: shelter.city ?? null,
+      postalCode: shelter.postalCode ?? null,
     }))
   }
 
@@ -35,6 +36,7 @@ export class ShelterService {
       phone: shelter.phone ?? null,
       email: shelter.email ?? null,
       city: shelter.city ?? null,
+      postalCode: shelter.postalCode ?? null,
     }
   }
 
