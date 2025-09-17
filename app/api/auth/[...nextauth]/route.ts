@@ -14,8 +14,6 @@ export const authOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        console.log('Authorize appelé !')
-
         if (!credentials || !credentials.email || !credentials.password) {
           return null
         }

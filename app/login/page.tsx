@@ -13,7 +13,6 @@ import { useSession, signIn } from 'next-auth/react'
 
 export default function Login() {
   const { data } = useSession()
-  console.log(data)
 
   async function testLogin() {
     const result = await signIn('credentials', {
@@ -21,8 +20,6 @@ export default function Login() {
       password: 'fakePassword',
       redirect: false,
     })
-
-    console.log(result)
   }
 
   return (
