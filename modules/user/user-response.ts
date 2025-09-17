@@ -1,9 +1,7 @@
-import { User } from '@/prisma/generated/prisma';
-
-export function userResponse(user: User) {
-  return {
-    id: user.id,
-    email: user.email,
-    createdAt: user.createdAt,
-  };
+export interface UserResponse {
+  id: string
+  name?: string
+  email: string
+  image?: string
+  shelterId?: string
 }

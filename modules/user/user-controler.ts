@@ -1,12 +1,13 @@
-import { UserService } from './user-service';
+import { UserCreateData } from './user-model'
+import { UserService } from './user-service'
 
 export class UserControler {
-  private service: UserService;
+  private service: UserService
 
   constructor() {
-    this.service = new UserService();
+    this.service = new UserService()
   }
-  async registerUser(email: string, password: string) {
-    return this.service.register(email, password);
+  async registerUser(data: UserCreateData) {
+    return this.service.register(data)
   }
 }

@@ -1,20 +1,21 @@
-import bcrypt from 'bcrypt';
-import { UserRepository } from './user-repository';
+import bcrypt from 'bcrypt'
+import { UserRepository } from './user-repository'
+import { UserCreateData } from './user-model'
 
 export class UserService {
-  private repository: UserRepository;
+  private repository: UserRepository
 
   constructor() {
-    this.repository = new UserRepository();
+    this.repository = new UserRepository()
   }
 
-  async register(email: string, password: string) {
-    const existing = await this.repository.findByEmail(email);
+  async register(data: UserCreateData) {
+    const existing = await this.repository.findByEmail(data.email)
     if (existing) {
-      throw new Error('Email already used');
+      throw new Error('Email already used')
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    return this.repository.create(email, hashedPassword);
+    const hashedPassword = await bcrypt.hash(data.password, 10)
+    return this.repository.create(data.email, hashedPassword)
   }
 }
