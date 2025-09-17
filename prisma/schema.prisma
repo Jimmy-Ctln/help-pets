@@ -73,6 +73,33 @@ model Shelter {
   email       String?
   userId      String          @unique
  
-  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  animals     Animal[]
+}
+
+model Animal {
+  id            String   @id @default(cuid())
+  name          String
+  species       String
+  breed         String?
+  age           Int?
+  birthday      DateTime?
+  sex           String
+  size          String?
+  weight        Float?
+  color         String?
+  description   String?
+  photos        String[]
+  status        String  
+  vaccinated    Boolean?
+  identified    Boolean?
+  chipNumber    String?
+  sterilized    Boolean?
+  compatibility String? 
+  specialNeeds  String?
+  shelterId     String
+  shelter       Shelter  @relation(fields: [shelterId], references: [id], onDelete: Cascade)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
