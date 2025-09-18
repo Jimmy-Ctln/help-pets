@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server'
 import { ShelterControler } from '@/modules/shelter/shelter-controler'
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: { shelterId: string } }) {
   try {
-    const { id } = await params
+    const { shelterId } = await params
     const controller = new ShelterControler()
-    const shelter = await controller.getShelterById(id)
+    const shelter = await controller.getShelterById(shelterId)
     if (!shelter) {
       return NextResponse.json({ error: 'Shelter not found' }, { status: 404 })
     }

@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server'
-import { ShelterControler } from '@/modules/shelter/shelter-controler'
 import { AnimalControler } from '@/modules/animal/animal-controler'
 
-export async function GET(request: Request) {
+export async function GET(request: Request, { params }: { params: { shelterId: string } }) {
   try {
+    const { shelterId } = await params
+
     const controler = new AnimalControler()
 
-    const getAllAnimalsForShelter = await controler.getAllAnimals()
+    const getAllAnimalsForShelter = await controler.getAllAnimals(shelterId)
 
     return NextResponse.json(getAllAnimalsForShelter, { status: 200 })
   } catch (err: any) {

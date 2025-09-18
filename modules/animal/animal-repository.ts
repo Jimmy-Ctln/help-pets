@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma'
-import { AnimalCreateData, AnimalUpdateData } from './animal-response'
+import { AnimalCreateData, AnimalUpdateData } from './animal-model'
 
 export class AnimalRepository {
   async getAllAnimals(shelterId?: string) {
