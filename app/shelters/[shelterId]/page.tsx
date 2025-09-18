@@ -100,7 +100,7 @@ export default function Shelter({ params }: { params: Promise<{ shelterId: strin
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full mx-auto mt-5 max-w-full">
               {pets &&
                 pets.map((pet) => (
-                  <Link key={pet.id} href={`/shelter/${shelterId}/animals/${pet.id}`}>
+                  <Link key={pet.id} href={`/shelters/${shelterId}/animals/${pet.id}`}>
                     <Card
                       key={pet.id}
                       className="w-[300-px] h-[420px] flex flex-col bg-secondary/50 shadow-none cursor-pointer py-0 pb-4 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-105"
