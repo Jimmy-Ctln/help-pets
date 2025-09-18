@@ -1,3 +1,4 @@
+import { AnimalandShelterQuery } from '@/types/animal-shelter'
 import { AnimalCreateData, AnimalUpdateData } from './animal-model'
 import { AnimalService } from './animal-service'
 
@@ -15,12 +16,12 @@ export class AnimalControler {
     return this.service.getAllAnimals()
   }
 
-  async getAnimal() {
-    return this.service.getAllAnimals()
-  }
-
   async getAnimalById(id: string) {
     return this.service.getAnimalById(id)
+  }
+
+  async getAnimalByIdAndShelterId(query: AnimalandShelterQuery) {
+    return this.service.getAnimalByIdAndShelterId(query)
   }
 
   async createAnimal(data: AnimalCreateData) {

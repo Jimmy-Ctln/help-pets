@@ -1,5 +1,6 @@
 import prisma from '@/lib/prisma'
 import { AnimalCreateData, AnimalUpdateData } from './animal-model'
+import { AnimalandShelterQuery } from '@/types/animal-shelter'
 
 export class AnimalRepository {
   async getAllAnimals(shelterId?: string) {
@@ -14,6 +15,12 @@ export class AnimalRepository {
   async getAnimalById(id: string) {
     return prisma.animal.findUnique({
       where: { id },
+    })
+  }
+
+  async getAnimalByIdAndShelterId(query: AnimalandShelterQuery) {
+    return prisma.animal.findFirst({
+      where: { id: query.animalId, shelterId: query.shelterId },
     })
   }
 

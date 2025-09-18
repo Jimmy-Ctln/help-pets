@@ -1,5 +1,6 @@
 import { AnimalRepository } from './animal-repository'
 import { AnimalCreateData, AnimalUpdateData } from './animal-model'
+import { AnimalandShelterQuery } from '@/types/animal-shelter'
 
 export class AnimalService {
   private repository: AnimalRepository
@@ -19,6 +20,12 @@ export class AnimalService {
     return animals.map((animal) => ({
       ...animal,
     }))
+  }
+
+  async getAnimalByIdAndShelterId(query: AnimalandShelterQuery) {
+    const animal = await this.repository.getAnimalByIdAndShelterId(query)
+    if (!animal) throw new Error('Animal not found')
+    return animal
   }
 
   async getAnimalById(id: string): Promise<AnimalCreateData> {
