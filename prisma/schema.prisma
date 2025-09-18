@@ -90,7 +90,6 @@ model Animal {
   color         String?
   description   String?
   photos        String[]
-  status        String  
   vaccinated    Boolean?
   identified    Boolean?
   chipNumber    String?
