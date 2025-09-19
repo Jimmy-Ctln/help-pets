@@ -5,7 +5,6 @@ import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 import * as React from 'react'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-
 import {
   Card,
   CardContent,
@@ -15,7 +14,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { ShelterResponse } from '@/modules/shelter/shelter-response'
-import { PawPrint } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import Link from 'next/link'
 import { AnimalResponse } from '@/modules/animal/animal-response'
 
@@ -91,7 +90,7 @@ export default function Shelter({ params }: { params: Promise<{ shelterId: strin
               <Button onClick={() => handleClick('needs')}>Nos besoins</Button>
             </div>
             <div>
-              <Button onClick={() => handleClick('')} icon={<PawPrint />}>
+              <Button onClick={() => handleClick('')} icon={<Plus />}>
                 Ajouter un animal
               </Button>
             </div>
@@ -103,7 +102,7 @@ export default function Shelter({ params }: { params: Promise<{ shelterId: strin
                   <Link key={pet.id} href={`/shelters/${shelterId}/animals/${pet.id}`}>
                     <Card
                       key={pet.id}
-                      className="w-[300-px] h-[420px] flex flex-col bg-secondary/50 shadow-none cursor-pointer py-0 pb-4 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-105"
+                      className="w-full h-auto flex flex-col bg-secondary/50 shadow-none cursor-pointer py-0 pb-4 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-105"
                     >
                       <AspectRatio ratio={4 / 3}>
                         <Image
@@ -114,11 +113,8 @@ export default function Shelter({ params }: { params: Promise<{ shelterId: strin
                           sizes="300px"
                         />
                       </AspectRatio>
-                      <CardHeader className="flex-1">
+                      <CardContent className="flex-1">
                         <CardTitle className="text-xl">{pet.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardFooter className="flex flex-col gap-2 mt-4 w-full"></CardFooter>
                       </CardContent>
                     </Card>
                   </Link>
