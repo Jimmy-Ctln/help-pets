@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <header className="w-full mt-4 px-20">
-      <div className="rounded-full border-2 p-4">
+      <div className="rounded-full border-2 p-2">
         <div className="flex items-center justify-between">
           <Link href={'/'} className="flex gap-2 items-center">
             <Image src={logo} className="object-cover" alt="logo" width={50} height={50} />

@@ -17,14 +17,14 @@ import {
 import { ShelterResponse } from '@/modules/shelter/shelter-response'
 import { PawPrint } from 'lucide-react'
 import Link from 'next/link'
-import { AnimaResponse } from '@/modules/animal/animal-response'
+import { AnimalResponse } from '@/modules/animal/animal-response'
 
 export default function Shelter({ params }: { params: Promise<{ shelterId: string }> }) {
   const { shelterId } = React.use(params)
 
   const [displayOption, setDisplayOption] = useState<'pets' | 'needs'>('pets')
   const [shelter, setShelter] = useState<ShelterResponse>()
-  const [pets, setPets] = useState<AnimaResponse[]>([])
+  const [pets, setPets] = useState<AnimalResponse[]>([])
 
   React.useEffect(() => {
     fetch(`/api/shelters/${shelterId}`)
@@ -46,7 +46,7 @@ export default function Shelter({ params }: { params: Promise<{ shelterId: strin
     <div className="mt-8 flex-col justify-center items-center px-20">
       <AspectRatio ratio={7} className="flex-1">
         <Image
-          src={shelter?.picture && shelter.picture !== '' ? shelter.picture : '/default.jpg'}
+          src={shelter?.picture ?? ''}
           alt="Background"
           fill
           className="object-cover object-[60%_55%] rounded-3xl"
@@ -107,7 +107,7 @@ export default function Shelter({ params }: { params: Promise<{ shelterId: strin
                     >
                       <AspectRatio ratio={4 / 3}>
                         <Image
-                          src={pet.photos[0].replace(/'/g, '')}
+                          src={pet.photos[0]}
                           alt="Animal"
                           fill
                           className="rounded-t-xl object-cover"

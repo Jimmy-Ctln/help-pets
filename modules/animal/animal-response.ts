@@ -1,4 +1,4 @@
-export interface AnimaResponse {
+export interface AnimalResponse {
   id: string
   name: string
   species: string

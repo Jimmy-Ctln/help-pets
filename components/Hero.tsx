@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import Header from '@/components/Header';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { AspectRatio } from '@radix-ui/react-aspect-ratio';
-import Background from '@/public/assets/background.jpg';
-import Image from 'next/image';
+import Header from '@/components/Header'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { AspectRatio } from '@radix-ui/react-aspect-ratio'
+import Background from '@/public/assets/background.jpg'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
@@ -21,7 +21,9 @@ export default function Hero() {
           />
         </AspectRatio>
         <div className="flex-1 w-full mt-4 flex flex-col justify-center gap-4">
-          <h1 className="text-3xl font-bold">Aide les associations et les animaux en un clic</h1>
+          <h1 className="text-3xl font-bold">
+            Ensemble, aidons les associations et les animaux en un clic.
+          </h1>
           <p className="mt-4 text-gray-600">
             Recherchez un animal à adopter, soutenez les associations locales ou faites un don pour
             leur venir en aide.
@@ -33,5 +35,5 @@ export default function Hero() {
         <Button>Rechercher</Button>
       </div>
     </section>
-  );
+  )
 }
