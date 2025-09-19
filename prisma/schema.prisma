@@ -78,27 +78,26 @@ model Shelter {
 }
 
 model Animal {
-  id            String   @id @default(cuid())
-  name          String
-  species       String
-  breed         String?
-  age           Int?
-  birthday      DateTime?
-  sex           String
-  size          String?
-  weight        Float?
-  color         String?
-  description   String?
-  photos        String[]
-  vaccinated    Boolean?
-  identified    Boolean?
-  chipNumber    String?
-  sterilized    Boolean?
-  compatibility String? 
-  specialNeeds  String?
-  shelterId     String
-  shelter       Shelter  @relation(fields: [shelterId], references: [id], onDelete: Cascade)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id                   String   @id @default(cuid())
+  name                 String
+  species              String
+  breed                String?
+  age                  Int?
+  birthday             DateTime?
+  sex                  String
+  size                 Float?
+  weight               Float?
+  description          String @db.VarChar(1000)
+  photos               String[]
+  vaccinated           Boolean?
+  identified           Boolean?
+  sterilized           Boolean?
+  compatibleWithDogs   Boolean?
+  compatibleWithCats   Boolean?
+  compatibleWithKids   Boolean?
+  shelterId            String
+  shelter              Shelter  @relation(fields: [shelterId], references: [id], onDelete: Cascade)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
 }
 

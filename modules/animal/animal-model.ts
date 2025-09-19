@@ -1,40 +1,26 @@
-export interface AnimalCreateData {
+export interface AnimalBase {
   id: string
   name: string
   species: string
   breed?: string
   age?: number
-  size?: string
-  weight?: number
-  color?: string
   birthday?: string
-  description?: string
+  sex: string
+  size?: number
+  weight?: number
+  description: string
   photos: string[]
-  status: string
   vaccinated?: boolean
   identified?: boolean
-  chipNumber?: string
   sterilized?: boolean
-  compatibility?: string
-  specialNeeds?: string
+  compatibleWithDogs?: boolean
+  compatibleWithCats?: boolean
+  compatibleWithKids?: boolean
   shelterId: string
+  createdAt: string
+  updatedAt: string
 }
 
-export type AnimalUpdateData = {
-  name?: string
-  species?: string
-  breed?: string
-  age?: number
-  size?: string
-  weight?: number
-  birthday?: string
-  description?: string
-  photos?: string[]
-  status?: string
-  vaccinated?: boolean
-  identified?: boolean
-  chipNumber?: string
-  sterilized?: boolean
-  compatibility?: string
-  specialNeeds?: string
-}
+export type AnimalCreateData = Omit<AnimalBase, 'id' | 'createdAt' | 'updatedAt'>
+
+export type AnimalUpdateData = Partial<AnimalCreateData>
